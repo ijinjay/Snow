@@ -180,8 +180,14 @@
 		8811F60B190D28DA00069EE1 /* thermometer-96.png in Resources */ = {isa = PBXBuildFile; fileRef = 8811F560190D28DA00069EE1 /* thermometer-96.png */; };
 		8811F613190D302700069EE1 /* settings2-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8811F612190D302700069EE1 /* settings2-32.png */; };
 		8811F615190D304300069EE1 /* polyline-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 8811F614190D304300069EE1 /* polyline-32.png */; };
+		88228862190FD8A700C22E86 /* City.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88228861190FD8A700C22E86 /* City.plist */; };
+		88228864190FDDE700C22E86 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88228863190FDDE700C22E86 /* CFNetwork.framework */; };
 		88282A35190D372D00A7692B /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 88282A34190D372D00A7692B /* WeatherModel.m */; };
 		88282A45190D44F600A7692B /* CityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88282A44190D44F600A7692B /* CityTableViewController.m */; };
+		88B8BB211910DCAA0092F0CE /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 88B8BB201910DCAA0092F0CE /* libsqlite3.dylib */; };
+		88B8BB231910FDC20092F0CE /* sinchronize-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B8BB221910FDC20092F0CE /* sinchronize-48.png */; };
+		88B8BB251910FE0F0092F0CE /* sinchronize-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B8BB241910FE0F0092F0CE /* sinchronize-32.png */; };
+		88B8BB271910FE4A0092F0CE /* sinchronize-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B8BB261910FE4A0092F0CE /* sinchronize-24.png */; };
 		88FE22E6190A69ED00D39D53 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FE22E5190A69ED00D39D53 /* Foundation.framework */; };
 		88FE22E8190A69ED00D39D53 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FE22E7190A69ED00D39D53 /* CoreGraphics.framework */; };
 		88FE22EA190A69ED00D39D53 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FE22E9190A69ED00D39D53 /* UIKit.framework */; };
@@ -197,8 +203,6 @@
 		88FE230A190A69ED00D39D53 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88FE22E9190A69ED00D39D53 /* UIKit.framework */; };
 		88FE2312190A69ED00D39D53 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 88FE2310190A69ED00D39D53 /* InfoPlist.strings */; };
 		88FE2314190A69ED00D39D53 /* SnowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 88FE2313190A69ED00D39D53 /* SnowTests.m */; };
-		88FE2324190A779500D39D53 /* R3.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE2322190A779500D39D53 /* R3.png */; };
-		88FE2325190A779500D39D53 /* R4.png in Resources */ = {isa = PBXBuildFile; fileRef = 88FE2323190A779500D39D53 /* R4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -385,10 +389,17 @@
 		8811F560190D28DA00069EE1 /* thermometer-96.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thermometer-96.png"; sourceTree = "<group>"; };
 		8811F612190D302700069EE1 /* settings2-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings2-32.png"; sourceTree = "<group>"; };
 		8811F614190D304300069EE1 /* polyline-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "polyline-32.png"; sourceTree = "<group>"; };
+		881C62461910B4710043728D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		88228861190FD8A700C22E86 /* City.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = City.plist; sourceTree = "<group>"; };
+		88228863190FDDE700C22E86 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		88282A33190D372D00A7692B /* WeatherModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeatherModel.h; sourceTree = "<group>"; };
 		88282A34190D372D00A7692B /* WeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModel.m; sourceTree = "<group>"; };
 		88282A43190D44F600A7692B /* CityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTableViewController.h; sourceTree = "<group>"; };
 		88282A44190D44F600A7692B /* CityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableViewController.m; sourceTree = "<group>"; };
+		88B8BB201910DCAA0092F0CE /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		88B8BB221910FDC20092F0CE /* sinchronize-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sinchronize-48.png"; sourceTree = "<group>"; };
+		88B8BB241910FE0F0092F0CE /* sinchronize-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sinchronize-32.png"; sourceTree = "<group>"; };
+		88B8BB261910FE4A0092F0CE /* sinchronize-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sinchronize-24.png"; sourceTree = "<group>"; };
 		88FE22E2190A69ED00D39D53 /* Snow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88FE22E5190A69ED00D39D53 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		88FE22E7190A69ED00D39D53 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -410,8 +421,6 @@
 		88FE230F190A69ED00D39D53 /* SnowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SnowTests-Info.plist"; sourceTree = "<group>"; };
 		88FE2311190A69ED00D39D53 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		88FE2313190A69ED00D39D53 /* SnowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SnowTests.m; sourceTree = "<group>"; };
-		88FE2322190A779500D39D53 /* R3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = R3.png; sourceTree = "<group>"; };
-		88FE2323190A779500D39D53 /* R4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = R4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -419,6 +428,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88B8BB211910DCAA0092F0CE /* libsqlite3.dylib in Frameworks */,
+				88228864190FDDE700C22E86 /* CFNetwork.framework in Frameworks */,
 				88FE22E8190A69ED00D39D53 /* CoreGraphics.framework in Frameworks */,
 				88FE22EA190A69ED00D39D53 /* UIKit.framework in Frameworks */,
 				88FE22E6190A69ED00D39D53 /* Foundation.framework in Frameworks */,
@@ -801,6 +812,9 @@
 		88FE22E4190A69ED00D39D53 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				88B8BB201910DCAA0092F0CE /* libsqlite3.dylib */,
+				881C62461910B4710043728D /* CoreLocation.framework */,
+				88228863190FDDE700C22E86 /* CFNetwork.framework */,
 				88FE22E5190A69ED00D39D53 /* Foundation.framework */,
 				88FE22E7190A69ED00D39D53 /* CoreGraphics.framework */,
 				88FE22E9190A69ED00D39D53 /* UIKit.framework */,
@@ -832,12 +846,14 @@
 		88FE22EC190A69ED00D39D53 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				88FE2322190A779500D39D53 /* R3.png */,
-				88FE2323190A779500D39D53 /* R4.png */,
+				88B8BB261910FE4A0092F0CE /* sinchronize-24.png */,
+				88B8BB241910FE0F0092F0CE /* sinchronize-32.png */,
+				88B8BB221910FDC20092F0CE /* sinchronize-48.png */,
 				88FE22ED190A69ED00D39D53 /* Snow-Info.plist */,
 				88FE22EE190A69ED00D39D53 /* InfoPlist.strings */,
 				88FE22F1190A69ED00D39D53 /* main.m */,
 				88FE22F3190A69ED00D39D53 /* Snow-Prefix.pch */,
+				88228861190FD8A700C22E86 /* City.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -949,11 +965,12 @@
 				8811F603190D28DA00069EE1 /* thermometer-128.png in Resources */,
 				8811F600190D28DA00069EE1 /* sun-512.png in Resources */,
 				8811F5D2190D28DA00069EE1 /* rain-48.png in Resources */,
-				88FE2325190A779500D39D53 /* R4.png in Resources */,
+				88B8BB251910FE0F0092F0CE /* sinchronize-32.png in Resources */,
 				8811F613190D302700069EE1 /* settings2-32.png in Resources */,
 				8811F598190D28DA00069EE1 /* icy-24.png in Resources */,
 				8811F58E190D28DA00069EE1 /* hail-128.png in Resources */,
 				8811F5F7190D28DA00069EE1 /* storm-512.png in Resources */,
+				88228862190FD8A700C22E86 /* City.plist in Resources */,
 				8811F57F190D28DA00069EE1 /* fog_day-32.png in Resources */,
 				8811F5C8190D28DA00069EE1 /* partly_cloudy_night-36.png in Resources */,
 				8811F579190D28DA00069EE1 /* dust-512.png in Resources */,
@@ -1002,6 +1019,7 @@
 				8811F5F3190D28DA00069EE1 /* storm-256.png in Resources */,
 				8811F5EF190D28DA00069EE1 /* snow_storm-64.png in Resources */,
 				8811F564190D28DA00069EE1 /* chance_of_storm-32.png in Resources */,
+				88B8BB231910FDC20092F0CE /* sinchronize-48.png in Resources */,
 				8811F5AE190D28DA00069EE1 /* little_snow-48.png in Resources */,
 				8811F5A2190D28DA00069EE1 /* little_rain-256.png in Resources */,
 				8811F5B7190D28DA00069EE1 /* moon-48.png in Resources */,
@@ -1041,7 +1059,6 @@
 				8811F5F4190D28DA00069EE1 /* storm-32.png in Resources */,
 				8811F5B8190D28DA00069EE1 /* moon-512.png in Resources */,
 				8811F589190D28DA00069EE1 /* fog_night-36.png in Resources */,
-				88FE2324190A779500D39D53 /* R3.png in Resources */,
 				8811F57D190D28DA00069EE1 /* fog_day-24.png in Resources */,
 				8811F56D190D28DA00069EE1 /* clouds-32.png in Resources */,
 				8811F5EC190D28DA00069EE1 /* snow_storm-36.png in Resources */,
@@ -1075,6 +1092,7 @@
 				8811F56A190D28DA00069EE1 /* clouds-128.png in Resources */,
 				8811F584190D28DA00069EE1 /* fog_day-96.png in Resources */,
 				8811F5E1190D28DA00069EE1 /* snow-256.png in Resources */,
+				88B8BB271910FE4A0092F0CE /* sinchronize-24.png in Resources */,
 				8811F605190D28DA00069EE1 /* thermometer-256.png in Resources */,
 				8811F59A190D28DA00069EE1 /* icy-32.png in Resources */,
 				8811F5E2190D28DA00069EE1 /* snow-32.png in Resources */,

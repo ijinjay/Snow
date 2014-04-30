@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CityTableViewController : UITableViewController
-
+@interface CityTableViewController : UITableViewController<UITabBarControllerDelegate>
++ (NSString *)getCurrentCity;
 @end
