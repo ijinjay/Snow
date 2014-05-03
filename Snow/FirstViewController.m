@@ -49,12 +49,22 @@
     [self updateButton];
     NSLog(@"进入FirstView");
 }
+- (void)tabBarController:(UITabBarController *)tabBarController willBeginCustomizingViewControllers:(NSArray *)viewControllers{
+    NSLog(@"will beginCUstom");
+}
+- (void)tabBarController:(UITabBarController *)tabBarController willEndCustomizingViewControllers:(NSArray *)viewControllers changed:(BOOL)changed{
+    NSLog(@"endCustom");
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     //通过ip定位当前城市 获取城市天气代码
-    self.tabBarController.delegate = self;
+    
+    UITabBarController *tabBarController = (UITabBarController*)[UIApplication sharedApplication].keyWindow.rootViewController ;
+    
+    [tabBarController setDelegate:self];
+    
     NSURL *url = [NSURL URLWithString:@"http://61.4.185.48:81/g/"];
     
     //    定义一个NSError对象，用于捕获错误信息
