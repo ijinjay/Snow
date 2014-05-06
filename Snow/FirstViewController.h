@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GraphKit.h"
 
-@interface FirstViewController : UIViewController<UITabBarControllerDelegate>
+@interface FirstViewController : UIViewController<GKBarGraphDataSource>
 @property IBOutlet UIButton * updateButton;
 @end

@@ -17,7 +17,7 @@
 @end
 
 @implementation WeatherModel
-@synthesize cityName,cityInfo,cityNum,date,week,temp1,temp2,temp3,temp4,temp5,temp6,weather1,weather6,weather5,weather4,weather2,weather3;
+@synthesize cityName,cityInfo,cityNum,date,week,temp1,temp2,temp3,temp4,temp5,temp6,weather1,weather6,weather5,weather4,weather2,weather3,img1,img2,img3,img4,img5,img6;
 
 -(NSString *) dataFilePath{
     NSArray *path =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
@@ -33,7 +33,7 @@
         NSLog(@"数据库创建失败！");
     }
     else{
-        NSString *ceateSQL = @"CREATE TABLE IF NOT EXISTS weather(cityName TEXT primary key,cityNum TEXT,cityInfo TEXT, date TEXT, week TEXT, temp1 TEXT, temp2 TEXT, temp3 TEXT, temp4 TEXT, temp5 TEXT, temp6 TEXT, weather1 TEXT, weather2 TEXT, weather3 TEXT, weather4 TEXT, weather5 TEXT, weather6 TEXT)";
+        NSString *ceateSQL = @"CREATE TABLE IF NOT EXISTS weather(cityName TEXT primary key,cityNum TEXT,cityInfo TEXT, date TEXT, week TEXT, temp1 TEXT, temp2 TEXT, temp3 TEXT, temp4 TEXT, temp5 TEXT, temp6 TEXT, weather1 TEXT, weather2 TEXT, weather3 TEXT, weather4 TEXT, weather5 TEXT, weather6 TEXT, img1 TEXT, img2 TEXT, img3 TEXT, img4 TEXT, img5 TEXT, img6 TEXT)";
         
         char *ERROR;
         
@@ -43,7 +43,7 @@
             NSLog(@"表创建失败");
         }
         else {
-            char *saveSQL = "INSERT OR REPLACE INTO weather(cityName ,cityNum ,cityInfo , date , week , temp1 , temp2 , temp3 , temp4 , temp5 , temp6 , weather1 , weather2 , weather3 , weather4 , weather5 , weather6 )""VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
+            char *saveSQL = "INSERT OR REPLACE INTO weather(cityName ,cityNum ,cityInfo , date , week , temp1 , temp2 , temp3 , temp4 , temp5 , temp6 , weather1 , weather2 , weather3 , weather4 , weather5 , weather6 , img1, img2, img3, img4, img5, img6)""VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
             
             char *errorMsg = NULL;
             sqlite3_stmt *stmt;
@@ -67,6 +67,12 @@
                 sqlite3_bind_text(stmt, 15, [self.weather4 UTF8String], -1, NULL);
                 sqlite3_bind_text(stmt, 16, [self.weather5 UTF8String], -1, NULL);
                 sqlite3_bind_text(stmt, 17, [self.weather6 UTF8String], -1, NULL);
+                sqlite3_bind_text(stmt, 18, [self.img1 UTF8String], -1, NULL);
+                sqlite3_bind_text(stmt, 19, [self.img2 UTF8String], -1, NULL);
+                sqlite3_bind_text(stmt, 20, [self.img3 UTF8String], -1, NULL);
+                sqlite3_bind_text(stmt, 21, [self.img4 UTF8String], -1, NULL);
+                sqlite3_bind_text(stmt, 22, [self.img5 UTF8String], -1, NULL);
+                sqlite3_bind_text(stmt, 23, [self.img6 UTF8String], -1, NULL);
             }
             if (sqlite3_step(stmt) != SQLITE_DONE) {
                 NSLog(@"数据更新失败");
@@ -109,6 +115,12 @@
                 self.weather4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 15)];
                 self.weather5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 16)];
                 self.weather6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 17)];
+                self.img1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 18)];
+                self.img2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 19)];
+                self.img3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 20)];
+                self.img4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 21)];
+                self.img5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 22)];
+                self.img6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 23)];
             }
             sqlite3_finalize(stmt);
         }
@@ -148,6 +160,12 @@
                 self.weather4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 15)];
                 self.weather5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 16)];
                 self.weather6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 17)];
+                self.img1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 18)];
+                self.img2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 19)];
+                self.img3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 20)];
+                self.img4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 21)];
+                self.img5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 22)];
+                self.img6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 23)];
             }
             sqlite3_finalize(stmt);
         }
@@ -189,8 +207,16 @@
     self.weather4 = [weatherInfo objectForKey:@"weather4"];
     self.weather5 = [weatherInfo objectForKey:@"weather5"];
     self.weather6 = [weatherInfo objectForKey:@"weather6"];
+    self.img1 = [weatherInfo objectForKey:@"img1"];
+    self.img2 = [weatherInfo objectForKey:@"img3"];
+    self.img3 = [weatherInfo objectForKey:@"img5"];
+    self.img4 = [weatherInfo objectForKey:@"img7"];
+    self.img5 = [weatherInfo objectForKey:@"img9"];
+    self.img6 = [weatherInfo objectForKey:@"img11"];
+    
     [self sqliteOpen];
     NSLog(@"Success get %@ data",self.cityName);
+    NSLog(@"weatherInfo:%@", self.cityInfo);
 }
 - (void)startWithNum:(NSString *)thecityNum;
 {

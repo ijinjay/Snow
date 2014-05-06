@@ -1,0 +1,98 @@
+
+// To check if a library is compiled with CocoaPods you
+// can use the `COCOAPODS` macro definition which is
+// defined in the xcconfigs so it is available in
+// headers also when they are imported in the client
+// project.
+
+
+// FrameAccessor
+#define COCOAPODS_POD_AVAILABLE_FrameAccessor
+#define COCOAPODS_VERSION_MAJOR_FrameAccessor 1
+#define COCOAPODS_VERSION_MINOR_FrameAccessor 3
+#define COCOAPODS_VERSION_PATCH_FrameAccessor 2
+
+// MKFoundationKit
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit 2
+
+// MKFoundationKit/AutoDescribe
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_AutoDescribe
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_AutoDescribe 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_AutoDescribe 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_AutoDescribe 2
+
+// MKFoundationKit/Base64
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_Base64
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_Base64 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_Base64 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_Base64 2
+
+// MKFoundationKit/Block
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_Block
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_Block 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_Block 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_Block 2
+
+// MKFoundationKit/NSArray
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSArray
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSArray 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSArray 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSArray 2
+
+// MKFoundationKit/NSBundle
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSBundle
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSBundle 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSBundle 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSBundle 2
+
+// MKFoundationKit/NSDate
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSDate
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSDate 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSDate 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSDate 2
+
+// MKFoundationKit/NSDictionary
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSDictionary
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSDictionary 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSDictionary 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSDictionary 2
+
+// MKFoundationKit/NSNumber
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSNumber
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSNumber 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSNumber 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSNumber 2
+
+// MKFoundationKit/NSObject
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSObject
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSObject 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSObject 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSObject 2
+
+// MKFoundationKit/NSSet
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSSet
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSSet 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSSet 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSSet 2
+
+// MKFoundationKit/NSString
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_NSString
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_NSString 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_NSString 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_NSString 2
+
+// MKFoundationKit/Queue
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_Queue
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_Queue 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_Queue 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_Queue 2
+
+// MKFoundationKit/Stack
+#define COCOAPODS_POD_AVAILABLE_MKFoundationKit_Stack
+#define COCOAPODS_VERSION_MAJOR_MKFoundationKit_Stack 1
+#define COCOAPODS_VERSION_MINOR_MKFoundationKit_Stack 2
+#define COCOAPODS_VERSION_PATCH_MKFoundationKit_Stack 2
+

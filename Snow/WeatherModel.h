@@ -27,6 +27,12 @@
 @property (nonatomic, retain) NSString *weather4;
 @property (nonatomic, retain) NSString *weather5;
 @property (nonatomic, retain) NSString *weather6;
+@property (nonatomic, retain) NSString *img1;
+@property (nonatomic, retain) NSString *img2;
+@property (nonatomic, retain) NSString *img3;
+@property (nonatomic, retain) NSString *img4;
+@property (nonatomic, retain) NSString *img5;
+@property (nonatomic, retain) NSString *img6;
 - (void)startWithNum:(NSString *)thecityNum;
 - (NSString *)getCityNum:(NSString *)thecityName;
 - (void) sqliteOpen; // 更新数据库
