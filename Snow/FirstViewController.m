@@ -82,39 +82,27 @@
                 if ([Str isEqualToString:@"id"]) {
                     if (![[jsonString substringWithRange:NSMakeRange(i+3, 1)] isEqualToString:@"c"]) {
                         intString = [jsonString substringWithRange:NSMakeRange(i+3, 9)];
-//                        NSLog(@"***%@***", intString);
                     }
                 }
             }
         }
-        if (intString != NULL) {
-            self.wM = [[WeatherModel alloc] init];
-            [self.wM startWithNum:intString];
-            [self.message setText:@"定位成功"];
-//            [self.wM sqliteCheck:intString];
+        self.wM = [[WeatherModel alloc] init];
+        [self.wM startWithNum:intString];
+        [self.message setText:@"定位成功，刷新显示！"];
             
-            [self.city setText:[self.wM cityName]];
-            self.locateCity = intString;
-//            NSLog(@"Locate City:%@\n",self.locateCity);
-            [self.temperature setText:[self.wM temp1]];
-            [self.todayInfo setText: [NSString stringWithFormat:@"今日指数：%@", [self.wM cityInfo]]];
-        }
-        else {
-            NSLog(@"Cannot locate");
-            [self.message setText:@"不能定位到当前所在城市"];
-        }
+        [self.city setText:[self.wM cityName]];
+        self.locateCity = intString;
+        [self.temperature setText:[self.wM temp1]];
+        [self.todayInfo setText: [NSString stringWithFormat:@"今日指数：%@", [self.wM cityInfo]]];
     }
     else {
         self.wM = [[WeatherModel alloc] init];
+        NSLog(@"Cannot locate");
+        [self.message setText:@"不能定位到当前所在城市"];
         if (![self.wM sqliteCheck]) {
             [self.message setText:@"不能获取数据！"];
         }
     }
-//    CGRect frame = CGRectMake(0, 380, 320, 100);
-//    self.graphView = [[GKBarGraph alloc] initWithFrame:frame];
-//    self.edgesForExtendedLayout = UIRectEdgeNone;
-//    [self drawBar];
-//    [self drawBar];
     
 }
 
@@ -128,13 +116,14 @@
 }
 
 - (void)drawBar{
+    // 温度平均值处理
     NSString *t1 = [self parseData:[self.wM temp1]];
     NSString *t2 = [self parseData:[self.wM temp2]];
     NSString *t3 = [self parseData:[self.wM temp3]];
     NSString *t4 = [self parseData:[self.wM temp4]];
     NSString *t5 = [self parseData:[self.wM temp5]];
     NSString *t6 = [self parseData:[self.wM temp6]];
-    
+    // 设置温度值
     [self.t1 setText: [NSString stringWithFormat:@"%d", [t1 intValue] - 50]];
     [self.t2 setText: [NSString stringWithFormat:@"%d", [t2 intValue] - 50]];
     [self.t3 setText: [NSString stringWithFormat:@"%d", [t3 intValue] - 50]];
@@ -143,6 +132,7 @@
     [self.t6 setText: [NSString stringWithFormat:@"%d", [t6 intValue] - 50]];
     
     self.data =@[t1,t2,t3,t4,t5,t6];
+    // 设置温度条标签
     self.labels = @[[self.wM weather1], [self.wM weather2], [self.wM weather3], [self.wM weather4], [self.wM weather5], [self.wM weather6]];
     self.graphView.dataSource = self;
     [self.graphView draw];
