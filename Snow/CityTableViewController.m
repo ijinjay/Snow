@@ -11,13 +11,15 @@
 #import "WeatherModel.h"
 
 static NSArray *citys;
-static NSString *currentCity;
+static NSString *currentCity = @"北京";
 
 @interface CityTableViewController ()
-+ (NSString *)getCurrentCity;
+@property (nonatomic, retain)FirstViewController *f_delegate;
++ (NSString *)getCurrentCity;// 类方法，返回当前城市名
 @end
 
 @implementation CityTableViewController
+// 类方法，返回当前城市名
 + (NSString *)getCurrentCity{
     return currentCity;
 }
@@ -42,6 +44,7 @@ static NSString *currentCity;
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+// 选中某一个列表项后的事件
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
