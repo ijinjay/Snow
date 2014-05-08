@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>53F6F296-8899-4624-BFEF-8AB05547A004</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Snow</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9078CE0F-57F2-462E-85B8-CC4B06E386C2</key>
+		<string>ssh://github.com/jinjaysnow/Snow.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Snow.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9078CE0F-57F2-462E-85B8-CC4B06E386C2</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/jinjaysnow/Snow.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9078CE0F-57F2-462E-85B8-CC4B06E386C2</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9078CE0F-57F2-462E-85B8-CC4B06E386C2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Snow</string>
+		</dict>
+	</array>
+</dict>
+</plist>
