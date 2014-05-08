@@ -14,11 +14,13 @@
 - (NSString *) dataFilePath;// 查找文件路径
 - (void) sqliteOpen; // 更新数据库
 - (BOOL) sqliteCheck; // 查找数据库
+- (BOOL) sqliteCheck:(NSString *)theCityNum; // 通过城市编号查找数据库
 @end
 
 @implementation WeatherModel
 @synthesize cityName,cityInfo,cityNum,date,week,temp1,temp2,temp3,temp4,temp5,temp6,weather1,weather6,weather5,weather4,weather2,weather3,img1,img2,img3,img4,img5,img6;
 
+// 获取app内文件路径函数
 -(NSString *) dataFilePath{
     NSArray *path =  NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *document = [path objectAtIndex:0];
@@ -84,7 +86,7 @@
     }
     
 }
-
+// 查找数据库
 -(BOOL) sqliteCheck{
     sqlite3 *database;
     if (sqlite3_open([[self dataFilePath] UTF8String], &database)!=SQLITE_OK) {
@@ -129,7 +131,7 @@
         return YES;
     }
 }
-
+// 通过城市编号查找数据库
 -(BOOL) sqliteCheck:(NSString *)theCityNum{
     sqlite3 *database;
     if (sqlite3_open([[self dataFilePath] UTF8String], &database)!=SQLITE_OK) {
@@ -176,11 +178,13 @@
 }
 
 #pragma mark - NSURLConnectionDataDelegate methods
+// 获取数据失败后显示网络连接失败
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     UIAlertView * alertV = [[UIAlertView alloc] initWithTitle:@"网络连接失败" message:[NSString  stringWithFormat:@"%@",error] delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
     [alertV show];
 }
+// 获取数据后存入数据库
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
     // 网络返回的 JSON 数据 data
@@ -218,6 +222,7 @@
     NSLog(@"Success get %@ data",self.cityName);
     NSLog(@"weatherInfo:%@", self.cityInfo);
 }
+// 通过城市编号开始获取数据
 - (void)startWithNum:(NSString *)thecityNum;
 {
     //向开源的地址发送连接请求
@@ -228,6 +233,8 @@
     NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:self];
     [urlConnection start];
 }
+
+// 通过城市名称获取城市编号
 - (NSString *)getCityNum:(NSString *)thecityName
 {
     NSString *errorDesc = nil;
