@@ -9,6 +9,7 @@
 #import "WeatherModel.h"
 #import "CityTableViewController.h"
 #import "/usr/include/sqlite3.h"
+#import "FirstViewController.h"
 
 @interface WeatherModel ()
 - (NSString *) dataFilePath;// 查找文件路径
@@ -19,6 +20,7 @@
 
 @implementation WeatherModel
 @synthesize cityName,cityInfo,cityNum,date,week,temp1,temp2,temp3,temp4,temp5,temp6,weather1,weather6,weather5,weather4,weather2,weather3,img1,img2,img3,img4,img5,img6;
+
 
 // 获取app内文件路径函数
 -(NSString *) dataFilePath{
@@ -221,6 +223,7 @@
     [self sqliteOpen];
     NSLog(@"Success get %@ data",self.cityName);
     NSLog(@"weatherInfo:%@", self.cityInfo);
+    [[FirstViewController getInstance] showInformation];
 }
 // 通过城市编号开始获取数据
 - (void)startWithNum:(NSString *)thecityNum;

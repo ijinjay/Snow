@@ -9,5 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface CityTableViewController : UITableViewController<UITabBarControllerDelegate>
+// 设置当前城市
++ (void)setCurrentCity:(NSString *)cityName;
+// 获取当前城市
 + (NSString *)getCurrentCity;
+// 单例模式
++ (id)getInstance;
 @end

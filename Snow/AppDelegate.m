@@ -7,14 +7,33 @@
 //
 
 #import "AppDelegate.h"
+#import "FirstViewController.h"
+#import "CityTableViewController.h"
 
 @implementation AppDelegate
 @synthesize window = _window;
+@synthesize firstViewController = _firstViewController;
+@synthesize tabBarController;
+@synthesize cityTableViewController = _cityTableViewController;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    // 实例化第一个视图控制器和第二个城市视图器
+    _firstViewController = [FirstViewController getInstance];
+    _cityTableViewController = [CityTableViewController getInstance];
+
+    // 实例化tabBar控制器
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:_firstViewController, _cityTableViewController,nil];
+    
+    // 将tabBarcontroller绑定为rootViewController
+    self.window.rootViewController = self.tabBarController;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
     
     return YES;
 }

@@ -34,6 +34,29 @@
 @synthesize todayInfo, city, temperature, weather;
 
 
+static FirstViewController *instance = nil;
+// 单例模式
++ (id)getInstance{
+    if (instance == nil) {
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        instance = (FirstViewController *)[storyboard instantiateViewControllerWithIdentifier:@"FirstViewController"];
+    }
+    return instance;
+}
+
+// 显示获得的信息
+- (void)showInformation{
+    [self.city setText:[self.wM cityName]];
+    NSLog(@"%@", [self.wM cityName]);
+    [self.temperature setText:[self.wM temp1]];
+    [self.todayInfo setText: [NSString stringWithFormat:@"今日指数：%@", [self.wM cityInfo]]];
+    UIImage *oneImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [self.wM img1]]];
+    [self.weather setImage:oneImage];
+    if ([self.wM weather1] != NULL) {
+        [self drawBar];
+    }
+}
+// 更新按钮
 - (IBAction)updateDate:(id)sender{
     NSString *currentCity = [CityTableViewController getCurrentCity];
     if (currentCity == NULL) {
@@ -50,19 +73,10 @@
         [self.message setText:@""];
     }
     [self.wM startWithNum:[self.wM getCityNum:currentCity]];
-    [self.city setText:[self.wM cityName]];
-    NSLog(@"%@", [self.wM cityName]);
-    [self.temperature setText:[self.wM temp1]];
-    [self.todayInfo setText: [NSString stringWithFormat:@"今日指数：%@", [self.wM cityInfo]]];
-    UIImage *oneImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [self.wM img1]]];
-    [self.weather setImage:oneImage];
-    if ([self.wM weather1] != NULL) {
-        [self drawBar];
-    }
+    
 }
-
-- (void)viewDidLoad
-{
+// 控制器实现的协议方法，视图加载后运行的初始化方法
+- (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     //通过ip定位当前城市 获取城市天气代码
@@ -88,12 +102,10 @@
         }
         self.wM = [[WeatherModel alloc] init];
         [self.wM startWithNum:intString];
-        [self.message setText:@"定位成功，刷新显示！"];
-            
-        [self.city setText:[self.wM cityName]];
-        self.locateCity = intString;
-        [self.temperature setText:[self.wM temp1]];
-        [self.todayInfo setText: [NSString stringWithFormat:@"今日指数：%@", [self.wM cityInfo]]];
+        [self.message setText:@"定位成功！"];
+        
+        // 设置cityTableViewController 的城市名为当前城市
+        [CityTableViewController setCurrentCity:[self.wM cityName]];
     }
     else {
         self.wM = [[WeatherModel alloc] init];
@@ -106,6 +118,7 @@
     
 }
 
+// 解析天气数据，供drawBar调用
 - (NSString *)parseData:(NSString *)str{
     NSCharacterSet *characterSet1 = [NSCharacterSet characterSetWithCharactersInString:@"℃"];
     NSArray *array1 = [str componentsSeparatedByCharactersInSet:characterSet1];
@@ -115,6 +128,7 @@
     return returnStr;
 }
 
+// 绘制条形图
 - (void)drawBar{
     // 温度平均值处理
     NSString *t1 = [self parseData:[self.wM temp1]];
@@ -143,17 +157,22 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+// 限制自动旋转
+- (BOOL)shouldAutorotate{
+    return NO;
+}
 
+// barGraph 要求实现的协议方法
 #pragma mark - GKBarGraphDataSource
-
+// barGraph中条形图的条数
 - (NSInteger)numberOfBars {
     return [self.data count];
 }
-
+// 每一个条形的值
 - (NSNumber *)valueForBarAtIndex:(NSInteger)index {
     return [self.data objectAtIndex:index];
 }
-
+// 每一个条形的颜色
 - (UIColor *)colorForBarAtIndex:(NSInteger)index {
     id colors = @[[UIColor gk_turquoiseColor],
                   [UIColor gk_peterRiverColor],
@@ -164,13 +183,13 @@
                   ];
     return [colors objectAtIndex:index];
 }
-
+// 动画
 - (CFTimeInterval)animationDurationForBarAtIndex:(NSInteger)index {
     CGFloat percentage = [[self valueForBarAtIndex:index] doubleValue];
     percentage = (percentage / 100);
     return (self.graphView.animationDuration * percentage);
 }
-
+// 标题
 - (NSString *)titleForBarAtIndex:(NSInteger)index {
     return [self.labels objectAtIndex:index];
 }

@@ -11,4 +11,6 @@
 
 @interface FirstViewController : UIViewController<GKBarGraphDataSource>
 @property IBOutlet UIButton * updateButton;
++ (id)getInstance;
+- (void)showInformation;
 @end

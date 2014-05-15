@@ -19,10 +19,24 @@ static NSString *currentCity = @"北京";
 @end
 
 @implementation CityTableViewController
+// 单例模式
+static CityTableViewController* instance = nil;
++ (id)getInstance{
+    if (instance == nil) {
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        instance = (CityTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"TableView"];
+    }
+    return instance;
+}
+// 设置当前城市
++ (void)setCurrentCity:(NSString *)cityName{
+    currentCity = cityName;
+}
 // 类方法，返回当前城市名
 + (NSString *)getCurrentCity{
     return currentCity;
 }
+// 构造方法
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -31,6 +45,10 @@ static NSString *currentCity = @"北京";
     return self;
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+}
+// 加载完成视图后的初始化代码
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -61,8 +79,10 @@ static NSString *currentCity = @"北京";
     // Dispose of any resources that can be recreated.
 }
 
+// tableView要求实现的协议方法
 #pragma mark - Table view data source
 
+// 多少个表项
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 //#warning Potentially incomplete method implementation.
@@ -70,14 +90,14 @@ static NSString *currentCity = @"北京";
 //    return 0;
     return 1;
 }
-
+// 所有的个数
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
     return [citys count];
 }
-
+// 设置表的显示
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CMainCell = @"CMaincell";
