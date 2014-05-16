@@ -25,16 +25,22 @@
     // 实例化第一个视图控制器和第二个城市视图器
     _firstViewController = [FirstViewController getInstance];
     _cityTableViewController = [CityTableViewController getInstance];
+    
+    // 设置第二个城市视图控制器的导航控制器
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:_cityTableViewController];
 
     // 实例化tabBar控制器
     self.tabBarController = [[UITabBarController alloc] init];
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:_firstViewController, _cityTableViewController,nil];
+    // 将first 和 nav 控制器加入到主控制器tabBarController
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:_firstViewController, nav,nil];
     
     // 将tabBarcontroller绑定为rootViewController
     self.window.rootViewController = self.tabBarController;
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
+    // 设置图标数字提示
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 1;
     return YES;
 }
 							

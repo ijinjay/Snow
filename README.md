@@ -7,7 +7,15 @@ Author: Jin Jay
 use TabViewController  
 For the course *Embedded Developing*
 
-Until now, finished the basic data mining and show data.  
+Until now, finished the basic functions.
+
+Use the third libraray
+> FrameAccessor :For draw Bar
+> MkFoundationKit :For draw Bar
+> MBProgressHUD :For show simple tips 
+> Source filefolder is used for drawwing bar
+
+
 
 ---
 

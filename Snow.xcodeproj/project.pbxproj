@@ -184,6 +184,9 @@
 		88228864190FDDE700C22E86 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88228863190FDDE700C22E86 /* CFNetwork.framework */; };
 		88282A35190D372D00A7692B /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 88282A34190D372D00A7692B /* WeatherModel.m */; };
 		88282A45190D44F600A7692B /* CityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88282A44190D44F600A7692B /* CityTableViewController.m */; };
+		8834FB7C19261CE000485B16 /* CommonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8834FB7B19261CE000485B16 /* CommonHelper.m */; };
+		8834FB7F192623EC00485B16 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8834FB7E192623EC00485B16 /* CityModel.m */; };
+		883C5DED19266F7C007CA453 /* settings2-30.png in Resources */ = {isa = PBXBuildFile; fileRef = 883C5DEC19266F7C007CA453 /* settings2-30.png */; };
 		886BAACA1917C087003E8EDB /* GKBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 886BAAC11917C087003E8EDB /* GKBar.m */; };
 		886BAACB1917C087003E8EDB /* GKBarGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 886BAAC31917C087003E8EDB /* GKBarGraph.m */; };
 		886BAACC1917C087003E8EDB /* GKLineGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 886BAAC71917C087003E8EDB /* GKLineGraph.m */; };
@@ -436,6 +439,11 @@
 		88282A34190D372D00A7692B /* WeatherModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeatherModel.m; sourceTree = "<group>"; };
 		88282A43190D44F600A7692B /* CityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTableViewController.h; sourceTree = "<group>"; };
 		88282A44190D44F600A7692B /* CityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableViewController.m; sourceTree = "<group>"; };
+		8834FB7A19261CE000485B16 /* CommonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonHelper.h; sourceTree = "<group>"; };
+		8834FB7B19261CE000485B16 /* CommonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonHelper.m; sourceTree = "<group>"; };
+		8834FB7D192623EC00485B16 /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
+		8834FB7E192623EC00485B16 /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		883C5DEC19266F7C007CA453 /* settings2-30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings2-30.png"; sourceTree = "<group>"; };
 		886BAAC01917C087003E8EDB /* GKBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBar.h; sourceTree = "<group>"; };
 		886BAAC11917C087003E8EDB /* GKBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GKBar.m; sourceTree = "<group>"; };
 		886BAAC21917C087003E8EDB /* GKBarGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GKBarGraph.h; sourceTree = "<group>"; };
@@ -537,6 +545,7 @@
 		8811F4A2190D28DA00069EE1 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				883C5DEC19266F7C007CA453 /* settings2-30.png */,
 				8811F614190D304300069EE1 /* polyline-32.png */,
 				8811F612190D302700069EE1 /* settings2-32.png */,
 				8811F4A3190D28DA00069EE1 /* chance_of_storm */,
@@ -869,6 +878,8 @@
 		88282A32190D36D100A7692B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8834FB7D192623EC00485B16 /* CityModel.h */,
+				8834FB7E192623EC00485B16 /* CityModel.m */,
 				88282A33190D372D00A7692B /* WeatherModel.h */,
 				88282A34190D372D00A7692B /* WeatherModel.m */,
 			);
@@ -1003,6 +1014,8 @@
 				88FE22FB190A69ED00D39D53 /* FirstViewController.m */,
 				88282A43190D44F600A7692B /* CityTableViewController.h */,
 				88282A44190D44F600A7692B /* CityTableViewController.m */,
+				8834FB7A19261CE000485B16 /* CommonHelper.h */,
+				8834FB7B19261CE000485B16 /* CommonHelper.m */,
 				88282A32190D36D100A7692B /* Model */,
 				88FE2300190A69ED00D39D53 /* Images.xcassets */,
 				88DF84DB1917A6F600BF65BD /* day */,
@@ -1178,6 +1191,7 @@
 				8811F5AB190D28DA00069EE1 /* little_snow-256.png in Resources */,
 				8811F575190D28DA00069EE1 /* dust-256.png in Resources */,
 				8811F580190D28DA00069EE1 /* fog_day-36.png in Resources */,
+				883C5DED19266F7C007CA453 /* settings2-30.png in Resources */,
 				8811F5B6190D28DA00069EE1 /* moon-36.png in Resources */,
 				8811F5C3190D28DA00069EE1 /* partly_cloudy_day-96.png in Resources */,
 				8811F5E8190D28DA00069EE1 /* snow_storm-128.png in Resources */,
@@ -1394,6 +1408,8 @@
 				886BAACB1917C087003E8EDB /* GKBarGraph.m in Sources */,
 				88282A45190D44F600A7692B /* CityTableViewController.m in Sources */,
 				88282A35190D372D00A7692B /* WeatherModel.m in Sources */,
+				8834FB7C19261CE000485B16 /* CommonHelper.m in Sources */,
+				8834FB7F192623EC00485B16 /* CityModel.m in Sources */,
 				88FE22F6190A69ED00D39D53 /* AppDelegate.m in Sources */,
 				886BAACC1917C087003E8EDB /* GKLineGraph.m in Sources */,
 				886BAACA1917C087003E8EDB /* GKBar.m in Sources */,
