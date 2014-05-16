@@ -24,3 +24,9 @@ now I have already fulfilment the basic functions.But there is something wrong w
 > 解决方法：使用代理delegate或者使用信号，在子进程完成自己的任务后触发父进程响应的处理事件。
 
 20140508
+
+---
+
+20140516 完成了城市搜索，改进了选择标记。
+***TODO:*** 优化城市切换,优化天气界面的按钮点击事件。
+
