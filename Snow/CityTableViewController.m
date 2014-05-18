@@ -41,6 +41,7 @@ static NSString *currentCity = @"北京";
     if ([self respondsToSelector:@selector(presentingViewController)])
     {
         [[self presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
+        
     }
     else
     {
@@ -55,7 +56,7 @@ static CityTableViewController* instance = nil;
 //        instance = (CityTableViewController *)[storyboard instantiateViewControllerWithIdentifier:@"TableView"];
         instance = [[CityTableViewController alloc] init];
         instance.tabBarItem.title = @"设置";
-        instance.tabBarItem.image = [UIImage imageNamed:@"settings2-30.png"];
+        instance.tabBarItem.image = [UIImage imageNamed:@"settings2-32.png"];
     }
     return instance;
 }
@@ -97,14 +98,9 @@ static CityTableViewController* instance = nil;
     [self.searchDC setDelegate:self];
     [self.searchDC setSearchResultsDelegate:self];
     [self.searchDC setSearchResultsDataSource:self];
-    AppDelegate *appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
-    
-    self.hud=[[CommonHelper sharedInstance] showHud:self title:@"请稍后..." selector:@selector(reloadSavedCitylist) arg:nil targetView:appDelegate.window];
-    
 }
 // 加载完成视图后的初始化代码
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -124,10 +120,11 @@ static CityTableViewController* instance = nil;
     NSLog(@"选中的城市：%@\n",currentCity);
     // 清除掉对当前的城市的标记
     for (UITableViewCell *cell in [tableView visibleCells]) {
-        if (cell != selectedCell) {
+        if (cell != selectedCell && cell.accessoryType == UITableViewCellAccessoryCheckmark) {
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
     }
+    
     if(selectedCell.accessoryType==UITableViewCellAccessoryCheckmark) {
         selectedCell.accessoryType = UITableViewCellAccessoryNone;
     }
@@ -183,11 +180,10 @@ static CityTableViewController* instance = nil;
     return cell;
 }
 #pragma market - SearchDisplayBar的委托
-
+// 搜索框的搜索功能，将搜索结果存入resultCitylist
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
     NSPredicate *predicate=[NSPredicate predicateWithFormat:@"SELF CONTAINS %@",searchString];
     self.resultCitylist=[self.citylist filteredArrayUsingPredicate:predicate];
     return YES;
 }
-
 @end

@@ -34,8 +34,8 @@
 @synthesize todayInfo, city, temperature, weather;
 
 
-static FirstViewController *instance = nil;
 // 单例模式
+static FirstViewController *instance = nil;
 + (id)getInstance{
     if (instance == nil) {
         UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
@@ -47,6 +47,7 @@ static FirstViewController *instance = nil;
 // 显示获得的信息
 - (void)showInformation{
     [self.city setText:[self.wM cityName]];
+    [CityTableViewController setCurrentCity:[self.wM cityName]];
     NSLog(@"%@", [self.wM cityName]);
     [self.temperature setText:[self.wM temp1]];
     [self.todayInfo setText: [NSString stringWithFormat:@"今日指数：%@", [self.wM cityInfo]]];
@@ -58,11 +59,12 @@ static FirstViewController *instance = nil;
 }
 // 更新按钮
 - (IBAction)updateDate:(id)sender{
+//    self.hud = [[FirstViewController getInstance] showHud:self title:@"正在更新数据" selector:@selector() arg:nil targetView:appDelegate.window];
     NSString *currentCity = [CityTableViewController getCurrentCity];
     if (currentCity == NULL) {
         if (self.locateCity != NULL) {
             currentCity = [self.wM cityName];
-            [self.message setText:@""];
+            [self.message setText:@" "];
         }
         else {
             currentCity = @"北京";
@@ -70,7 +72,7 @@ static FirstViewController *instance = nil;
         }
     }
     else {
-        [self.message setText:@""];
+        [self.message setText:@" "];
     }
     [self.wM startWithNum:[self.wM getCityNum:currentCity]];
     
@@ -80,7 +82,8 @@ static FirstViewController *instance = nil;
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     //通过ip定位当前城市 获取城市天气代码
-    
+    self.hud = [[MBProgressHUD alloc] initWithView:self.view];
+    [self.hud hide:YES];
     NSURL *url = [NSURL URLWithString:@"http://61.4.185.48:81/g/"];
     
     //    定义一个NSError对象，用于捕获错误信息
@@ -100,12 +103,12 @@ static FirstViewController *instance = nil;
                 }
             }
         }
-        self.wM = [[WeatherModel alloc] init];
+        self.wM = [WeatherModel getInstance];
         [self.wM startWithNum:intString];
         [self.message setText:@"定位成功！"];
         
         // 设置cityTableViewController 的城市名为当前城市
-        [CityTableViewController setCurrentCity:[self.wM cityName]];
+        
     }
     else {
         self.wM = [[WeatherModel alloc] init];
@@ -115,7 +118,6 @@ static FirstViewController *instance = nil;
             [self.message setText:@"不能获取数据！"];
         }
     }
-    
 }
 
 // 解析天气数据，供drawBar调用
@@ -161,6 +163,16 @@ static FirstViewController *instance = nil;
 - (BOOL)shouldAutorotate{
     return NO;
 }
+// 视图在此进入时，如果不是与当前选择的城市相同就自动刷新天气
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    NSString *oldCity = self.city.text;
+    NSLog(@"--->%@\t%@<---",oldCity,[CityTableViewController getCurrentCity]);
+    if (![oldCity isEqualToString:[CityTableViewController getCurrentCity]]) {
+        [self updateButton];
+        NSLog(@"自动更新成功");
+    }
+}
 
 // barGraph 要求实现的协议方法
 #pragma mark - GKBarGraphDataSource
@@ -193,5 +205,5 @@ static FirstViewController *instance = nil;
 - (NSString *)titleForBarAtIndex:(NSInteger)index {
     return [self.labels objectAtIndex:index];
 }
-
+// reload
 @end

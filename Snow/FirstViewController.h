@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GraphKit.h"
+#import "MBProgressHUD.h"
 
 @interface FirstViewController : UIViewController<GKBarGraphDataSource>
 @property IBOutlet UIButton * updateButton;
+@property (nonatomic,retain) MBProgressHUD *hud;
 + (id)getInstance;
 - (void)showInformation;
 @end

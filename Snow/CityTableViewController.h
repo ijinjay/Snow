@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
-#import "CommonHelper.h"
 
 @interface CityTableViewController : UITableViewController<UISearchDisplayDelegate,MBProgressHUDDelegate >
 @property(nonatomic,retain)NSMutableArray *citylist;

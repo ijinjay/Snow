@@ -23,8 +23,8 @@
                                 <color key="textColor" red="0.11145273999198368" green="1" blue="0.34801589123496735" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="highlightedColor" red="0.30989274344563367" green="0.93478260869565222" blue="0.24878430724963713" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="snow-256.png" translatesAutoresizingMaskIntoConstraints="NO" id="HyR-tk-94c">
-                                <rect key="frame" x="40" y="56" width="240" height="120"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0.png" translatesAutoresizingMaskIntoConstraints="NO" id="HyR-tk-94c">
+                                <rect key="frame" x="40" y="55" width="240" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="todayInfo" editable="NO" text="今日指数：" translatesAutoresizingMaskIntoConstraints="NO" id="70Z-ud-5Yw">
@@ -48,9 +48,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BdO-z6-ect">
-                                <rect key="frame" x="123" y="212" width="75" height="22"/>
+                                <rect key="frame" x="124" y="212" width="75" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="刷新" image="sinchronize-24.png">
+                                <state key="normal" title="刷新">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -106,12 +106,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text=" " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eg7-EJ-W2g">
-                                <rect key="frame" x="245" y="354" width="28" height="21"/>
+                                <rect key="frame" x="244" y="354" width="28" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sinchronize-24.png" translatesAutoresizingMaskIntoConstraints="NO" id="gcG-je-LH6">
+                                <rect key="frame" x="124" y="213" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -179,10 +183,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="0.png" width="120" height="120"/>
         <image name="first" width="30" height="30"/>
         <image name="settings2-32.png" width="32" height="32"/>
         <image name="sinchronize-24.png" width="24" height="24"/>
-        <image name="snow-256.png" width="256" height="256"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

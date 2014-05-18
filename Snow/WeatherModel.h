@@ -38,4 +38,5 @@
 - (void) sqliteOpen; // 更新数据库
 - (BOOL) sqliteCheck; // 查找数据库
 - (BOOL) sqliteCheck:(NSString *)theCityNum; // 通过城市编号查找数据库
++ (id) getInstance; // 单例模式
 @end
