@@ -19,6 +19,8 @@ And a green card should be registered at least once a year.If you do not registe
 So in order to maintain the validity of your green card, you need back to the country at lease once a year. Certainly, there is another way. If you know you cann't get back into the US, you can apply a Re-entry Permit before you leave the US. But this card is also timelimited, you are allowed two year to back into the US. 
 
 Once you hold your green card for five years and you didnot do unlawful act, you can apply for citizenship of America. 
+
+#### Rights of citizenship
 1. Freedom to reside and work. 
 2. Freedom to enter and leave the United States.
 3. Voting for federal office in all fifty states and the District of Columbia is restricted to citizens only.
@@ -31,3 +33,10 @@ Once you hold your green card for five years and you didnot do unlawful act, you
 4. Transmission of U.S. citizenship to children born abroad.
 5. Protection from deportation.
 
+For Chinese people, the difference between green card and having a citizensihip of America is that you can free go back to China with green card while you need a visa of China to get back into China as an America citizen.
+
+
+### About The Terminal
+
+OK, having discussed visa, green card and citizenship, I'd like to talk about a film called The Terminal directed by Steven Spielberg starring Tom Hanks. Krakozhian traveler Viktor Navorski (Tom Hanks) arrives at New York's John F. Kennedy International Airport, only to find that his passport is suddenly no longer valid due to the outbreak of a civil war in Krakozhia, his homeland. As a result, the United States no longer recognizes Krakozhia as a sovereign nation, and he is not permitted to either enter the country or return home. Unable to communicate in proper English, he is forced to hand over his passport and ticket to the police.
+The delay gives Viktor enough time to go into the city. Dixon, watching Viktor leave the airport, decides not to pursue him. Viktor arrives in New York at the hotel where Benny Golson is performing and finally collects the last autograph. Then he gets in a taxi, telling the driver, "I am going home."
