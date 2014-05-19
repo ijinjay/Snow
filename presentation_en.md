@@ -14,4 +14,20 @@ In most cases, you need a visa interview  at the country's embassy or consulate,
 
 There are different types of visas, such as student visa, immigrant visa, visitor visa. 
 
+Ok, now I am going to say something about the differences between visa and green card. As a owner of student visa, you can get a work in the country afer your graduation, and then you can apply for a green card via your company. Once you get your green card, you will get walfare such as Visa-free travel, it means you are free to travel the country with a Chinese citizenship, and you can line up in a queue with the local Americans while visa owners need to line up in another queue which is usually much more slower and strict security check. 
+And a green card should be registered at least once a year.If you do not register, it would be very troublesome that you should certify your information to restore your green card. Otherwise, your green card will be revoked. 
+So in order to maintain the validity of your green card, you need back to the country at lease once a year. Certainly, there is another way. If you know you cann't get back into the US, you can apply a Re-entry Permit before you leave the US. But this card is also timelimited, you are allowed two year to back into the US. 
+
+Once you hold your green card for five years and you didnot do unlawful act, you can apply for citizenship of America. 
+1. Freedom to reside and work. 
+2. Freedom to enter and leave the United States.
+3. Voting for federal office in all fifty states and the District of Columbia is restricted to citizens only.
+4. Freedom to stand for public office.
+
+#### Benefits of citizenship
+1. Consular protection outside the United States. 
+2. Increased ability to sponsor relatives living abroad.
+3. Ability to invest in U.S. real property without triggering FIRPTA.
+4. Transmission of U.S. citizenship to children born abroad.
+5. Protection from deportation.
 
