@@ -7,9 +7,12 @@
 //
 
 #import "DBViewController.h"
+#import "WeatherModel.h"
+#import "CityTableViewController.h"
 
 @interface DBViewController ()
 @property IBOutlet UITextField* cityName;
+@property IBOutlet UITextView* cityInfo;
 -(IBAction)editFinished:(id)sender;
 @end
 
@@ -26,12 +29,22 @@ static DBViewController *instance = nil;
 // 点击键盘return消失键盘
 - (IBAction)editFinished:(id)sender {
     [sender resignFirstResponder];
+    [self checkDB];
 }
 
-- (BOOL)checkDB{
+- (void)checkDB{
     NSString *str = self.cityName.text;
-    
-    return true;
+    WeatherModel *w = [WeatherModel getInstance];
+    NSString *originalCityName = [CityTableViewController getCurrentCity];
+    [CityTableViewController setCurrentCity:str];
+    NSLog(@"%@-----%@-----%@",str,originalCityName,[CityTableViewController getCurrentCity]);
+    if (![w sqliteCheck:@"101010400"]) {
+        [[self cityInfo] setText:@"城市输入错误或城市数据未缓存在本地"];
+    }
+    else {
+        [[self cityInfo] setText:[NSString stringWithFormat:@"%@\n%@", w.cityName, w.cityInfo]];
+    }
+    [CityTableViewController setCurrentCity:originalCityName];
 }
 - (void)viewDidLoad
 {

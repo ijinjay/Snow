@@ -106,6 +106,7 @@ static WeatherModel *instance = nil;
     else{
         NSString *query= [NSString stringWithFormat:@"select * from weather where cityName=%@", [CityTableViewController getCurrentCity]];
         sqlite3_stmt *stmt;
+        NSLog(@"查询语句：%@",query);
         if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, nil) == SQLITE_OK) {
             while (sqlite3_step(stmt)==SQLITE_ROW) {
                 self.cityName = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 1)];
@@ -133,10 +134,16 @@ static WeatherModel *instance = nil;
                 self.img6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 23)];
             }
             sqlite3_finalize(stmt);
+            NSLog(@"check success");
+        }
+        else{
+            sqlite3_close(database);
+            NSLog(@"check failed");
+            return false;
         }
         //用完了一定记得关闭，释放内存
         sqlite3_close(database);
-        return YES;
+        return true;
     }
 }
 // 通过城市编号查找数据库

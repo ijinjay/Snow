@@ -166,12 +166,12 @@ static FirstViewController *instance = nil;
 // 视图在此进入时，如果不是与当前选择的城市相同就自动刷新天气
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    NSString *oldCity = self.city.text;
-    NSLog(@"--->%@\t%@<---",oldCity,[CityTableViewController getCurrentCity]);
-    if (![oldCity isEqualToString:[CityTableViewController getCurrentCity]]) {
-//        [self updateButton];
-        NSLog(@"自动更新成功");
-    }
+//    NSString *oldCity = self.city.text;
+//    NSLog(@"--->%@\t%@<---",oldCity,[CityTableViewController getCurrentCity]);
+//    if (![oldCity isEqualToString:[CityTableViewController getCurrentCity]]) {
+////        [self updateButton];
+//        NSLog(@"自动更新成功");
+//    }
 }
 
 // barGraph 要求实现的协议方法
