@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DBViewController : UIViewController
-
++ (id)getInstance;
 @end

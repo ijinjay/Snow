@@ -21,6 +21,7 @@
 		88B8BB231910FDC20092F0CE /* sinchronize-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B8BB221910FDC20092F0CE /* sinchronize-48.png */; };
 		88B8BB251910FE0F0092F0CE /* sinchronize-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B8BB241910FE0F0092F0CE /* sinchronize-32.png */; };
 		88B8BB271910FE4A0092F0CE /* sinchronize-24.png in Resources */ = {isa = PBXBuildFile; fileRef = 88B8BB261910FE4A0092F0CE /* sinchronize-24.png */; };
+		88CC32CA192E0C0E00367D06 /* DBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88CC32C9192E0C0E00367D06 /* DBViewController.m */; };
 		88DF85011917A6F600BF65BD /* 0.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DF84DC1917A6F600BF65BD /* 0.png */; };
 		88DF85021917A6F600BF65BD /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DF84DD1917A6F600BF65BD /* 1.png */; };
 		88DF85031917A6F600BF65BD /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 88DF84DE1917A6F600BF65BD /* 2.png */; };
@@ -107,6 +108,8 @@
 		88B8BB221910FDC20092F0CE /* sinchronize-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sinchronize-48.png"; sourceTree = "<group>"; };
 		88B8BB241910FE0F0092F0CE /* sinchronize-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sinchronize-32.png"; sourceTree = "<group>"; };
 		88B8BB261910FE4A0092F0CE /* sinchronize-24.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sinchronize-24.png"; sourceTree = "<group>"; };
+		88CC32C8192E0C0E00367D06 /* DBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBViewController.h; sourceTree = "<group>"; };
+		88CC32C9192E0C0E00367D06 /* DBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBViewController.m; sourceTree = "<group>"; };
 		88DF84DC1917A6F600BF65BD /* 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 0.png; sourceTree = "<group>"; };
 		88DF84DD1917A6F600BF65BD /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		88DF84DE1917A6F600BF65BD /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
@@ -331,6 +334,8 @@
 				88FE22FB190A69ED00D39D53 /* FirstViewController.m */,
 				88282A43190D44F600A7692B /* CityTableViewController.h */,
 				88282A44190D44F600A7692B /* CityTableViewController.m */,
+				88CC32C8192E0C0E00367D06 /* DBViewController.h */,
+				88CC32C9192E0C0E00367D06 /* DBViewController.m */,
 				88282A32190D36D100A7692B /* Model */,
 				88FE2300190A69ED00D39D53 /* Images.xcassets */,
 				88DF84DB1917A6F600BF65BD /* day */,
@@ -554,6 +559,7 @@
 				886BAACC1917C087003E8EDB /* GKLineGraph.m in Sources */,
 				886BAACA1917C087003E8EDB /* GKBar.m in Sources */,
 				88FE22FC190A69ED00D39D53 /* FirstViewController.m in Sources */,
+				88CC32CA192E0C0E00367D06 /* DBViewController.m in Sources */,
 				88FE22F2190A69ED00D39D53 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -15,6 +15,7 @@
 @synthesize firstViewController = _firstViewController;
 @synthesize tabBarController;
 @synthesize cityTableViewController = _cityTableViewController;
+@synthesize dbViewController = _dbViewController;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -22,9 +23,10 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
-    // 实例化第一个视图控制器和第二个城市视图器
+    // 实例化第一个视图控制器和第二个城市视图器,第三个数据库视图器
     _firstViewController = [FirstViewController getInstance];
     _cityTableViewController = [CityTableViewController getInstance];
+    _dbViewController = [DBViewController getInstance];
     
     // 设置第二个城市视图控制器的导航控制器
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:_cityTableViewController];
@@ -32,7 +34,7 @@
     // 实例化tabBar控制器
     self.tabBarController = [[UITabBarController alloc] init];
     // 将first 和 nav 控制器加入到主控制器tabBarController
-    self.tabBarController.viewControllers = [NSArray arrayWithObjects:_firstViewController, nav,nil];
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:_firstViewController, nav,_dbViewController,nil];
     
     // 将tabBarcontroller绑定为rootViewController
     self.window.rootViewController = self.tabBarController;

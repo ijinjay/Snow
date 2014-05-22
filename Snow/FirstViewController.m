@@ -169,7 +169,7 @@ static FirstViewController *instance = nil;
     NSString *oldCity = self.city.text;
     NSLog(@"--->%@\t%@<---",oldCity,[CityTableViewController getCurrentCity]);
     if (![oldCity isEqualToString:[CityTableViewController getCurrentCity]]) {
-        [self updateButton];
+//        [self updateButton];
         NSLog(@"自动更新成功");
     }
 }

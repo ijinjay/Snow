@@ -260,7 +260,7 @@ static WeatherModel *instance = nil;
                                           format:&format
                                           errorDescription:&errorDesc];
     if (!temp) {
-        NSLog(@"Error reading plist: %@, format: %d", errorDesc, format);
+        NSLog(@"Error reading plist: %@, format: %lu", errorDesc, format);
     }
     return [[temp objectForKey:@"City"] objectForKey:thecityName];
 }

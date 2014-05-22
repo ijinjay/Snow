@@ -186,4 +186,18 @@ static CityTableViewController* instance = nil;
     self.resultCitylist=[self.citylist filteredArrayUsingPredicate:predicate];
     return YES;
 }
+- (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{
+    controller.searchBar.showsCancelButton = YES;//显示cancel button
+    NSLog(@"开始搜索");
+    for (UIView *subView in self.searchDisplayController.searchBar.subviews) {
+//        if ([subView isKindOfClass:NSClassFromString(@"UIButton")]) // 或者[UIButton class]
+//        {
+//            cancelButton = (UIButton*)subView;
+//            // 在这里修改属性
+//            NSLog(@"Find the cancel button");
+//            [cancelButton setTitle:@"完成" forState:UIControlStateNormal];
+//        }
+        NSLog(@"%@",subView.description);
+    }
+}
 @end

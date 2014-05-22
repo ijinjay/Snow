@@ -9,20 +9,30 @@
 #import "DBViewController.h"
 
 @interface DBViewController ()
-
+@property IBOutlet UITextField* cityName;
+-(IBAction)editFinished:(id)sender;
 @end
 
 @implementation DBViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+// 单例模式
+static DBViewController *instance = nil;
++ (id)getInstance{
+    if (instance == nil) {
+        UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        instance = (DBViewController *)[storyboard instantiateViewControllerWithIdentifier:@"DBViewController"];
     }
-    return self;
+    return instance;
+}
+// 点击键盘return消失键盘
+- (IBAction)editFinished:(id)sender {
+    [sender resignFirstResponder];
 }
 
+- (BOOL)checkDB{
+    NSString *str = self.cityName.text;
+    
+    return true;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

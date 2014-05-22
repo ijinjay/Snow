@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "FirstViewController.h"
 #import "CityTableViewController.h"
+#import "DBViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,4 +17,5 @@
 @property (nonatomic,retain) FirstViewController *firstViewController;
 @property (nonatomic,retain) CityTableViewController *cityTableViewController;
 @property (nonatomic,retain) UITabBarController *tabBarController;
+@property (nonatomic,retain) DBViewController *dbViewController;
 @end
