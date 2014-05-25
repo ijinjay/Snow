@@ -58,7 +58,7 @@ static CityTableViewController* instance = nil;
     return instance;
 }
 // 设置当前城市
-+ (void)setCurrentCity:(NSString *)cityName{
++ (void)setCurrentCity:(NSString *)cityName {
     currentCity = cityName;
 }
 // 类方法，返回当前城市名
@@ -73,10 +73,10 @@ static CityTableViewController* instance = nil;
     return self;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Make sure your segue name in storyboard is the same as this line
 }
--(void)reloadSavedCitylist{
+-(void)reloadSavedCitylist {
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
 }
 -(void)loadView {
@@ -110,7 +110,7 @@ static CityTableViewController* instance = nil;
 }
 
 // 选中某一个列表项后的事件
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     NSString *cellText = selectedCell.textLabel.text;
     currentCity = cellText;
@@ -129,8 +129,7 @@ static CityTableViewController* instance = nil;
         [selectedCell setAccessoryType:UITableViewCellAccessoryCheckmark];
     }
 }
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -139,16 +138,14 @@ static CityTableViewController* instance = nil;
 #pragma mark - Table view data source
 
 // 多少个表项
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 //#warning Potentially incomplete method implementation.
     // Return the number of sections.
 //    return 0;
     return 1;
 }
 // 所有的个数
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 //#warning Incomplete method implementation.
     // Return the number of rows in the section.
     if([tableView isEqual:searchDC.searchResultsTableView])
@@ -158,8 +155,7 @@ static CityTableViewController* instance = nil;
     return [self.citylist count];
 }
 // 设置表的显示
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CMainCell = @"CMaincell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CMainCell];
                             
