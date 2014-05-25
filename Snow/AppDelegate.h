@@ -18,4 +18,5 @@
 @property (nonatomic,retain) CityTableViewController *cityTableViewController;
 @property (nonatomic,retain) UITabBarController *tabBarController;
 @property (nonatomic,retain) DBViewController *dbViewController;
+- (void)changeToFirst;
 @end

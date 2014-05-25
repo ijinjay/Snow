@@ -37,16 +37,13 @@ static NSString *currentCity = @"北京";
 -(void)goTopAction:(id)sender{
     [self.tableView setContentOffset:CGPointMake(0, 0) animated:YES];
 }
+// TODO:
 -(void)dismissSelf:(id)sender{
-    if ([self respondsToSelector:@selector(presentingViewController)])
-    {
-        [[self presentingViewController] dismissViewControllerAnimated:YES completion:NULL];
-        
-    }
-    else
-    {
-        [[self parentViewController] dismissViewControllerAnimated:YES completion:NULL];
-    }
+    NSLog(@"回到第一视图");
+    AppDelegate *appD = [[UIApplication sharedApplication] delegate];
+    [appD changeToFirst];
+    FirstViewController *f = [FirstViewController getInstance];
+    [f updateDate:f];
 }
 // 单例模式
 static CityTableViewController* instance = nil;
@@ -77,7 +74,7 @@ static CityTableViewController* instance = nil;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    
+    // Make sure your segue name in storyboard is the same as this line
 }
 -(void)reloadSavedCitylist{
     [self.tableView performSelectorOnMainThread:@selector(reloadData) withObject:nil waitUntilDone:YES];
@@ -200,4 +197,5 @@ static CityTableViewController* instance = nil;
         NSLog(@"%@",subView.description);
     }
 }
+
 @end

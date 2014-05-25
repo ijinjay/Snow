@@ -15,4 +15,5 @@
 @property (nonatomic,retain) MBProgressHUD *hud;
 + (id)getInstance;
 - (void)showInformation;
+- (IBAction)updateDate:(id)sender;
 @end

@@ -38,7 +38,7 @@ static DBViewController *instance = nil;
     NSString *originalCityName = [CityTableViewController getCurrentCity];
     [CityTableViewController setCurrentCity:str];
     NSLog(@"%@-----%@-----%@",str,originalCityName,[CityTableViewController getCurrentCity]);
-    if (![w sqliteCheck:@"101010400"]) {
+    if (![w sqliteCheck]) {
         [[self cityInfo] setText:@"城市输入错误或城市数据未缓存在本地"];
     }
     else {

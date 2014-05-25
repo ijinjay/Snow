@@ -97,6 +97,7 @@ static WeatherModel *instance = nil;
 // 查找数据库
 -(BOOL) sqliteCheck{
     sqlite3 *database;
+    BOOL returnValue = YES;
     if (sqlite3_open([[self dataFilePath] UTF8String], &database)!=SQLITE_OK) {
         sqlite3_close(database);
         NSAssert(0, @"open database failed!");
@@ -104,12 +105,13 @@ static WeatherModel *instance = nil;
         return false;
     }
     else{
-        NSString *query= [NSString stringWithFormat:@"select * from weather where cityName=%@", [CityTableViewController getCurrentCity]];
+        NSString *query= [NSString stringWithFormat:@"select * from weather where cityName = %@", [CityTableViewController getCurrentCity]];
         sqlite3_stmt *stmt;
-        NSLog(@"查询语句：%@",query);
+        NSLog(@"查询语句：%s",[query UTF8String]);
         if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, nil) == SQLITE_OK) {
             while (sqlite3_step(stmt)==SQLITE_ROW) {
                 self.cityName = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 1)];
+                NSLog(@"%@", self.cityName);
                 self.cityNum = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 2)];
                 self.cityInfo = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 3)];
                 self.date = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 4)];
@@ -133,22 +135,23 @@ static WeatherModel *instance = nil;
                 self.img5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 22)];
                 self.img6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 23)];
             }
-            sqlite3_finalize(stmt);
             NSLog(@"check success");
         }
         else{
-            sqlite3_close(database);
             NSLog(@"check failed");
-            return false;
+            NSLog(@"%s",sqlite3_errmsg(database));
+            returnValue = false;
         }
-        //用完了一定记得关闭，释放内存
-        sqlite3_close(database);
-        return true;
+        sqlite3_finalize(stmt);
     }
+    //用完了一定记得关闭，释放内存
+    sqlite3_close(database);
+    return returnValue;
 }
 // 通过城市编号查找数据库
 -(BOOL) sqliteCheck:(NSString *)theCityNum{
     sqlite3 *database;
+    BOOL returnValue = YES;
     if (sqlite3_open([[self dataFilePath] UTF8String], &database)!=SQLITE_OK) {
         sqlite3_close(database);
         NSAssert(0, @"open database failed!");
@@ -158,7 +161,9 @@ static WeatherModel *instance = nil;
     else{
         NSString *query= [NSString stringWithFormat:@"select * from weather where cityNum=%@", theCityNum];
         sqlite3_stmt *stmt;
+        NSLog(@"Select statement:%@",query);
         if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, nil) == SQLITE_OK) {
+            NSLog(@"Entered the if condition");
             while (sqlite3_step(stmt)==SQLITE_ROW) {
                 self.cityName = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 1)];
                 self.cityNum = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 2)];
@@ -184,12 +189,17 @@ static WeatherModel *instance = nil;
                 self.img5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 22)];
                 self.img6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 23)];
             }
-            sqlite3_finalize(stmt);
         }
-        //用完了一定记得关闭，释放内存
-        sqlite3_close(database);
-        return YES;
+        else {
+            NSLog(@"Failed to load data");
+            returnValue = false;
+            NSLog(@"%s",sqlite3_errmsg(database));
+        }
+        sqlite3_finalize(stmt);
     }
+    //用完了一定记得关闭，释放内存
+    sqlite3_close(database);
+    return returnValue;
 }
 
 #pragma mark - NSURLConnectionDataDelegate methods
