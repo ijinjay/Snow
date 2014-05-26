@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GraphKit.h"
 
-@interface DBViewController : UIViewController
+@interface DBViewController : UIViewController<GKLineGraphDataSource>
 + (id)getInstance;
 @end

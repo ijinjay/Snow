@@ -29,12 +29,12 @@
 #import <MKFoundationKit/NSArray+MK.h>
 
 static CGFloat kDefaultLabelWidth = 40.0;
-static CGFloat kDefaultLabelHeight = 15.0;
+static CGFloat kDefaultLabelHeight = 12.0;
 static NSInteger kDefaultValueLabelCount = 5;
 
 static CGFloat kDefaultLineWidth = 3.0;
 static CGFloat kDefaultMargin = 10.0;
-static CGFloat kDefaultMarginBottom = 10.0;
+static CGFloat kDefaultMarginBottom = 20.0;
 
 static CGFloat kAxisMargin = 50.0;
 
@@ -68,6 +68,7 @@ static CGFloat kAxisMargin = 50.0;
     self.animationDuration = 1;
     self.lineWidth = kDefaultLineWidth;
     self.margin = kDefaultMargin;
+    self.valueLabelCount = kDefaultValueLabelCount;
     self.clipsToBounds = YES;
 }
 
@@ -77,7 +78,7 @@ static CGFloat kAxisMargin = 50.0;
     if ([self _hasTitleLabels]) [self _removeTitleLabels];
     [self _constructTitleLabels];
     [self _positionTitleLabels];
-
+    
     if ([self _hasValueLabels]) [self _removeValueLabels];
     [self _constructValueLabels];
     
@@ -133,7 +134,7 @@ static CGFloat kAxisMargin = 50.0;
         label.y = startY;
         
         [self addSubview:label];
-
+        
         idx++;
     }];
 }
@@ -150,9 +151,8 @@ static CGFloat kAxisMargin = 50.0;
 
 - (void)_constructValueLabels {
     
-    NSInteger count = kDefaultValueLabelCount + 1;
+    NSInteger count = self.valueLabelCount;
     id items = [NSMutableArray arrayWithCapacity:count];
-    
     for (NSInteger idx = 0; idx < count; idx++) {
         
         CGRect frame = CGRectMake(0, 0, kDefaultLabelWidth, kDefaultLabelHeight);
@@ -160,11 +160,12 @@ static CGFloat kAxisMargin = 50.0;
         item.textAlignment = NSTextAlignmentRight;
         item.font = [UIFont boldSystemFontOfSize:12];
         item.textColor = [UIColor lightGrayColor];
-    
+        
         CGFloat value = [self _minValue] + (idx * [self _stepValueLabelY]);
         item.centerY = [self _positionYForLineValue:value];
         
         item.text = [@(ceil(value)) stringValue];
+        //        item.text = [@(value) stringValue];
         
         [items addObject:item];
         [self addSubview:item];
@@ -173,17 +174,36 @@ static CGFloat kAxisMargin = 50.0;
 }
 
 - (CGFloat)_stepValueLabelY {
-    return (([self _maxValue] - [self _minValue]) / kDefaultValueLabelCount);
+    return (([self _maxValue] - [self _minValue] ) / (self.valueLabelCount - 1));
 }
 
 - (CGFloat)_maxValue {
     id values = [self _allValues];
-    return [[values mk_max] floatValue];
+    NSArray *array = [values sortedArrayUsingComparator:^(id obj1, id obj2){
+        if ([obj1 integerValue] > [obj2 integerValue]) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        if ([obj1 integerValue] < [obj2 integerValue]) {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        return (NSComparisonResult)NSOrderedSame;
+    }];
+    return [[array lastObject] intValue];
 }
 
 - (CGFloat)_minValue {
+    if (self.startFromZero) return 0;
     id values = [self _allValues];
-    return [[values mk_min] floatValue];
+    NSArray *array = [values sortedArrayUsingComparator:^(id obj1, id obj2){
+        if ([obj1 integerValue] > [obj2 integerValue]) {
+            return (NSComparisonResult)NSOrderedDescending;
+        }
+        if ([obj1 integerValue] < [obj2 integerValue]) {
+            return (NSComparisonResult)NSOrderedAscending;
+        }
+        return (NSComparisonResult)NSOrderedSame;
+    }];
+    return [[array firstObject] intValue];
 }
 
 - (NSArray *)_allValues {
@@ -207,6 +227,10 @@ static CGFloat kAxisMargin = 50.0;
     return (self.width - (2 * self.margin) - kAxisMargin);
 }
 
+- (CGFloat)_plotHeight {
+    return (self.height - (2 * kDefaultLabelHeight + kDefaultMarginBottom));
+}
+
 - (void)_drawLines {
     for (NSInteger idx = 0; idx < [self.dataSource numberOfLines]; idx++) {
         [self _drawLineAtIndex:idx];
@@ -228,7 +252,7 @@ static CGFloat kAxisMargin = 50.0;
     NSInteger idx = 0;
     id values = [self.dataSource valuesForLineAtIndex:index];
     for (id item in values) {
-
+        
         CGFloat x = [self _pointXForIndex:idx];
         CGFloat y = [self _positionYForLineValue:[item floatValue]];
         CGPoint point = CGPointMake(x, y);
@@ -253,8 +277,11 @@ static CGFloat kAxisMargin = 50.0;
 }
 
 - (CGFloat)_positionYForLineValue:(CGFloat)value {
-    CGFloat result = (self.height -  value);
-    result -= kDefaultLabelHeight + kDefaultMarginBottom;
+    // 我自己修改了scale的值大小： + 10
+    CGFloat scale = (value - [self _minValue]) / ([self _maxValue] - [self _minValue]);
+    CGFloat result = [self _plotHeight] * scale;
+    result = ([self _plotHeight] -  result);
+    result += kDefaultLabelHeight;
     return result;
 }
 
@@ -272,7 +299,7 @@ static CGFloat kAxisMargin = 50.0;
     item.lineCap = kCALineCapRound;
     item.lineJoin  = kCALineJoinRound;
     item.lineWidth = self.lineWidth;
-//    item.strokeColor = [self.foregroundColor CGColor];
+    //    item.strokeColor = [self.foregroundColor CGColor];
     item.strokeColor = [[UIColor redColor] CGColor];
     item.strokeEnd = 1;
     return item;
@@ -284,7 +311,7 @@ static CGFloat kAxisMargin = 50.0;
     animation.duration = self.animationDuration;
     animation.fromValue = @(0);
     animation.toValue = @(1);
-//    animation.delegate = self;
+    //    animation.delegate = self;
     return animation;
 }
 
