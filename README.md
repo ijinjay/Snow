@@ -2,6 +2,7 @@
 
 ```
 Author: Jin Jay
+Current Version: V2.0
 ```
 
 use TabViewController  
@@ -29,8 +30,12 @@ now I have already fulfilment the basic functions.But there is something wrong w
 20140516 完成了城市搜索，改进了选择标记。
 ***TODO:*** 优化城市切换,优化天气界面的按钮点击事件。
 
+---
+
 20140525 完成了城市视图“完成”按钮的视图切换和数据更新操作。  
 ***TODO:*** 数据库查询中文乱码问题
+
+---
 
 20140526 修正了sqlite查询功能，中文乱码问题已解决
 
