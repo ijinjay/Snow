@@ -16,4 +16,5 @@
 + (id)getInstance;
 - (void)showInformation;
 - (IBAction)updateDate:(id)sender;
+- (void)showWarring;
 @end

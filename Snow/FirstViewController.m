@@ -32,8 +32,10 @@
 
 @implementation FirstViewController
 @synthesize todayInfo, city, temperature, weather;
-
-
+// 不能获取数据时，显示警告提示信息
+- (void)showWarring{
+    [self.message setText:@"未能获取数据，请重试"];
+}
 // 单例模式
 static FirstViewController *instance = nil;
 + (id)getInstance{
@@ -48,13 +50,16 @@ static FirstViewController *instance = nil;
 - (void)showInformation{
     [self.city setText:[self.wM cityName]];
     [CityTableViewController setCurrentCity:[self.wM cityName]];
-    NSLog(@"%@", [self.wM cityName]);
+//    NSLog(@"%@", [self.wM cityName]);
     [self.temperature setText:[self.wM temp1]];
-    [self.todayInfo setText: [NSString stringWithFormat:@"今日指数：%@", [self.wM cityInfo]]];
     UIImage *oneImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", [self.wM img1]]];
     [self.weather setImage:oneImage];
-    if ([self.wM weather1] != NULL) {
+    if ([self.wM weather5] != NULL) {
         [self drawBar];
+        [self.todayInfo setText: [NSString stringWithFormat:@"网络更新时间：%@\n今日指数：%@", [self.wM date], [self.wM cityInfo]]];
+    }
+    else {
+        [self.todayInfo setText:[NSString stringWithFormat:@"网络更新时间:%@\n不能更新温度曲线", [self.wM date]]];
     }
 }
 // 更新按钮

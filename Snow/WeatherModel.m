@@ -43,10 +43,10 @@ static WeatherModel *instance = nil;
         NSLog(@"数据库创建失败！");
     }
     else{
+        // 创建数据库语句
         NSString *ceateSQL = @"CREATE TABLE IF NOT EXISTS weather(cityName TEXT primary key,cityNum TEXT,cityInfo TEXT, date TEXT, week TEXT, temp1 TEXT, temp2 TEXT, temp3 TEXT, temp4 TEXT, temp5 TEXT, temp6 TEXT, weather1 TEXT, weather2 TEXT, weather3 TEXT, weather4 TEXT, weather5 TEXT, weather6 TEXT, img1 TEXT, img2 TEXT, img3 TEXT, img4 TEXT, img5 TEXT, img6 TEXT)";
         
         char *ERROR;
-        
         if (sqlite3_exec(database, [ceateSQL UTF8String], NULL, NULL, &ERROR)!=SQLITE_OK){
             sqlite3_close(database);
             NSAssert(0, @"ceate table faild!");
@@ -219,6 +219,13 @@ static WeatherModel *instance = nil;
     id weatherInfo = [dict objectForKey:@"weatherinfo"];
     
     self.cityName = [weatherInfo objectForKey:@"city"];
+//  解决拿到空数据的情况
+    if ( self.cityName == nil) {
+        NSLog(@"拿到了空数据");
+        [[FirstViewController getInstance] showWarring];
+        return;
+    }
+
     self.cityNum = [weatherInfo objectForKey:@"cityid"];
     self.cityInfo = [weatherInfo objectForKey:@"index_d"];
     self.date = [weatherInfo objectForKey:@"date_y"];
