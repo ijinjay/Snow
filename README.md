@@ -31,3 +31,6 @@ now I have already fulfilment the basic functions.But there is something wrong w
 
 20140525 完成了城市视图“完成”按钮的视图切换和数据更新操作。  
 ***TODO:*** 数据库查询中文乱码问题
+
+20140526 修正了sqlite查询功能，中文乱码问题已解决
+
