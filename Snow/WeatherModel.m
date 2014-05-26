@@ -105,35 +105,36 @@ static WeatherModel *instance = nil;
         return false;
     }
     else{
-        NSString *query= [NSString stringWithFormat:@"select * from weather where cityName = %@", [CityTableViewController getCurrentCity]];
+        NSString *query= [NSString stringWithFormat:@"select * from weather where cityName = '%@'", [CityTableViewController getCurrentCity]];
         sqlite3_stmt *stmt;
-        NSLog(@"查询语句：%s",[query UTF8String]);
+        NSLog(@"查询语句：%@\n%s", query, [query UTF8String]);
         if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, nil) == SQLITE_OK) {
+            returnValue = false;
             while (sqlite3_step(stmt)==SQLITE_ROW) {
-                self.cityName = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 1)];
-                NSLog(@"%@", self.cityName);
-                self.cityNum = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 2)];
-                self.cityInfo = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 3)];
-                self.date = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 4)];
-                self.week = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 5)];
-                self.temp1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 6)];
-                self.temp2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 7)];
-                self.temp3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 8)];
-                self.temp4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 9)];
-                self.temp5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 10)];
-                self.temp6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 11)];
-                self.weather1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 12)];
-                self.weather2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 13)];
-                self.weather3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 14)];
-                self.weather4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 15)];
-                self.weather5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 16)];
-                self.weather6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 17)];
-                self.img1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 18)];
-                self.img2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 19)];
-                self.img3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 20)];
-                self.img4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 21)];
-                self.img5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 22)];
-                self.img6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 23)];
+                self.cityName = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 1-1)];
+                self.cityNum = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 2-1)];
+                self.cityInfo = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 3-1)];
+                self.date = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 4-1)];
+                self.week = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 5-1)];
+                self.temp1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 6-1)];
+                self.temp2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 7-1)];
+                self.temp3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 8-1)];
+                self.temp4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 9-1)];
+                self.temp5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 10-1)];
+                self.temp6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 11-1)];
+                self.weather1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 12-1)];
+                self.weather2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 13-1)];
+                self.weather3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 14-1)];
+                self.weather4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 15-1)];
+                self.weather5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 16-1)];
+                self.weather6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 17-1)];
+                self.img1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 18-1)];
+                self.img2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 19-1)];
+                self.img3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 20-1)];
+                self.img4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 21-1)];
+                self.img5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 22-1)];
+                self.img6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 23-1)];
+                returnValue = true;
             }
             NSLog(@"check success");
         }
@@ -159,35 +160,35 @@ static WeatherModel *instance = nil;
         return false;
     }
     else{
-        NSString *query= [NSString stringWithFormat:@"select * from weather where cityNum=%@", theCityNum];
+        NSString *query= [NSString stringWithFormat:@"select * from weather where cityNum = '%@'", theCityNum];
         sqlite3_stmt *stmt;
         NSLog(@"Select statement:%@",query);
         if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, nil) == SQLITE_OK) {
             NSLog(@"Entered the if condition");
             while (sqlite3_step(stmt)==SQLITE_ROW) {
-                self.cityName = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 1)];
-                self.cityNum = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 2)];
-                self.cityInfo = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 3)];
-                self.date = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 4)];
-                self.week = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 5)];
-                self.temp1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 6)];
-                self.temp2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 7)];
-                self.temp3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 8)];
-                self.temp4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 9)];
-                self.temp5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 10)];
-                self.temp6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 11)];
-                self.weather1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 12)];
-                self.weather2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 13)];
-                self.weather3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 14)];
-                self.weather4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 15)];
-                self.weather5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 16)];
-                self.weather6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 17)];
-                self.img1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 18)];
-                self.img2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 19)];
-                self.img3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 20)];
-                self.img4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 21)];
-                self.img5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 22)];
-                self.img6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 23)];
+                self.cityName = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 1-1)];
+                self.cityNum = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 2-1)];
+                self.cityInfo = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 3-1)];
+                self.date = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 4-1)];
+                self.week = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 5-1)];
+                self.temp1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 6-1)];
+                self.temp2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 7-1)];
+                self.temp3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 8-1)];
+                self.temp4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 9-1)];
+                self.temp5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 10-1)];
+                self.temp6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 11-1)];
+                self.weather1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 12-1)];
+                self.weather2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 13-1)];
+                self.weather3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 14-1)];
+                self.weather4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 15-1)];
+                self.weather5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 16-1)];
+                self.weather6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 17-1)];
+                self.img1 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 18-1)];
+                self.img2 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 19-1)];
+                self.img3 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 20-1)];
+                self.img4 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 21-1)];
+                self.img5 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 22-1)];
+                self.img6 = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 23-1)];
             }
         }
         else {
@@ -220,7 +221,8 @@ static WeatherModel *instance = nil;
     self.cityName = [weatherInfo objectForKey:@"city"];
     self.cityNum = [weatherInfo objectForKey:@"cityid"];
     self.cityInfo = [weatherInfo objectForKey:@"index_d"];
-    self.date = [weatherInfo objectForKey:@"data_y"];
+    self.date = [weatherInfo objectForKey:@"date_y"];
+    NSLog(@"%@",self.date);
     self.week = [weatherInfo objectForKey:@"week"];
     self.temp1 = [weatherInfo objectForKey:@"temp1"];
     self.temp2 = [weatherInfo objectForKey:@"temp2"];
