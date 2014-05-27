@@ -40,3 +40,8 @@ now I have already fulfilment the basic functions.But there is something wrong w
 20140526 修正了sqlite查询功能，中文乱码问题已解决
 
 201405262020 完成了数据库查询视图折线图的绘制，程序版本号V2.0，可提交
+
+---
+
+20140527 完成了软件部分文档，完善了代码风格一致性  
+***TODO:*** Hub的使用，使得软件具有良好的提示效果。
