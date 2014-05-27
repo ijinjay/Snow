@@ -4,4 +4,10 @@
 \BOOKMARK [3][-]{subsubsection.1.2.1}{应用范围}{subsection.1.2}% 4
 \BOOKMARK [3][-]{subsubsection.1.2.2}{应用功能点定义}{subsection.1.2}% 5
 \BOOKMARK [1][-]{section.2}{系统设计}{}% 6
-\BOOKMARK [1][-]{section.3}{系统截图展示}{}% 7
+\BOOKMARK [2][-]{subsection.2.1}{类图设计}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.2}{部分算法设计}{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.2.1}{城市定位}{subsection.2.2}% 9
+\BOOKMARK [3][-]{subsubsection.2.2.2}{获取天气信息}{subsection.2.2}% 10
+\BOOKMARK [3][-]{subsubsection.2.2.3}{数据存储与查询}{subsection.2.2}% 11
+\BOOKMARK [1][-]{section.3}{总结}{}% 12
+\BOOKMARK [1][-]{section.4}{系统截图展示}{}% 13
