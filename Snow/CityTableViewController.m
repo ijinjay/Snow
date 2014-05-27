@@ -30,7 +30,7 @@ static NSString *currentCity = @"北京";
 @synthesize hud;
 // TODO:
 -(BOOL)isSaved:(NSString *)cityID {
-    BOOL flag=NO;
+    BOOL flag = NO;
     return flag;
 }
 // 回到顶部
@@ -83,15 +83,15 @@ static CityTableViewController* instance = nil;
     [super loadView];
     
 //    self.navigationController.navigationBar.translucent = NO;
-    self.navigationItem.leftBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"回到顶部" style:UIBarButtonItemStyleBordered target:self action:@selector(goTopAction:)];
-    self.navigationItem.rightBarButtonItem=[[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissSelf:)];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"回到顶部" style:UIBarButtonItemStyleBordered target:self action:@selector(goTopAction:)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"完成" style:UIBarButtonItemStyleDone target:self action:@selector(dismissSelf:)];
     
-    self.searchBar=[[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     [searchBar setTintColor:[UIColor colorWithRed:211/255.0 green:211/255.0 blue:211/255.0 alpha:1.0]];
-    searchBar.placeholder=@"请在此输入您要查找的城市名称";
+    searchBar.placeholder = @"请在此输入您要查找的城市名称";
     [self.tableView setTableHeaderView:self.searchBar];
     
-    self.searchDC=[[UISearchDisplayController alloc]initWithSearchBar:self.searchBar contentsController:self];
+    self.searchDC = [[UISearchDisplayController alloc]initWithSearchBar:self.searchBar contentsController:self];
     [self.searchDC setDelegate:self];
     [self.searchDC setSearchResultsDelegate:self];
     [self.searchDC setSearchResultsDataSource:self];
@@ -122,7 +122,7 @@ static CityTableViewController* instance = nil;
         }
     }
     
-    if(selectedCell.accessoryType==UITableViewCellAccessoryCheckmark) {
+    if(selectedCell.accessoryType == UITableViewCellAccessoryCheckmark) {
         selectedCell.accessoryType = UITableViewCellAccessoryNone;
     }
     else {
@@ -165,7 +165,7 @@ static CityTableViewController* instance = nil;
     
     // Configure the cell...
     if([tableView isEqual:searchDC.searchResultsTableView]) {
-        cell.textLabel.text=[self.resultCitylist objectAtIndex:indexPath.row];
+        cell.textLabel.text = [self.resultCitylist objectAtIndex:indexPath.row];
     }
     else{
         cell.textLabel.text = [self.citylist objectAtIndex:indexPath.row];
@@ -175,8 +175,8 @@ static CityTableViewController* instance = nil;
 #pragma market - SearchDisplayBar的委托
 // 搜索框的搜索功能，将搜索结果存入resultCitylist
 -(BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString {
-    NSPredicate *predicate=[NSPredicate predicateWithFormat:@"SELF CONTAINS %@",searchString];
-    self.resultCitylist=[self.citylist filteredArrayUsingPredicate:predicate];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF CONTAINS %@",searchString];
+    self.resultCitylist = [self.citylist filteredArrayUsingPredicate:predicate];
     return YES;
 }
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller{

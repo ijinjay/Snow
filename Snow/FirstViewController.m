@@ -94,7 +94,7 @@ static FirstViewController *instance = nil;
     //    定义一个NSError对象，用于捕获错误信息
     NSError *error;
     NSString *jsonString = [NSString stringWithContentsOfURL:url encoding:NSUTF8StringEncoding error:&error];
-//    NSLog(@"------------%@",jsonString);
+    //    NSLog(@"------------%@",jsonString);
     if (jsonString != NULL) {
         NSString *intString;
         NSString *Str;
@@ -152,7 +152,7 @@ static FirstViewController *instance = nil;
     [self.t5 setText: [NSString stringWithFormat:@"%d", [t5 intValue] - 50]];
     [self.t6 setText: [NSString stringWithFormat:@"%d", [t6 intValue] - 50]];
     
-    self.data =@[t1,t2,t3,t4,t5,t6];
+    self.data = @[t1,t2,t3,t4,t5,t6];
     // 设置温度条标签
     self.labels = @[[self.wM weather1], [self.wM weather2], [self.wM weather3], [self.wM weather4], [self.wM weather5], [self.wM weather6]];
     self.graphView.dataSource = self;

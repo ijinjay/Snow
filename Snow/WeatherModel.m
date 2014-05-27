@@ -37,7 +37,7 @@ static WeatherModel *instance = nil;
 // 更新数据
 - (void) sqliteOpen{
     sqlite3 *database;
-    if (sqlite3_open([[self dataFilePath] UTF8String], &database)!=SQLITE_OK) {
+    if (sqlite3_open([[self dataFilePath] UTF8String], &database) != SQLITE_OK) {
         sqlite3_close(database);
         NSAssert(0, @"open database faid!");
         NSLog(@"数据库创建失败！");
@@ -47,7 +47,7 @@ static WeatherModel *instance = nil;
         NSString *ceateSQL = @"CREATE TABLE IF NOT EXISTS weather(cityName TEXT primary key,cityNum TEXT,cityInfo TEXT, date TEXT, week TEXT, temp1 TEXT, temp2 TEXT, temp3 TEXT, temp4 TEXT, temp5 TEXT, temp6 TEXT, weather1 TEXT, weather2 TEXT, weather3 TEXT, weather4 TEXT, weather5 TEXT, weather6 TEXT, img1 TEXT, img2 TEXT, img3 TEXT, img4 TEXT, img5 TEXT, img6 TEXT)";
         
         char *ERROR;
-        if (sqlite3_exec(database, [ceateSQL UTF8String], NULL, NULL, &ERROR)!=SQLITE_OK){
+        if (sqlite3_exec(database, [ceateSQL UTF8String], NULL, NULL, &ERROR) != SQLITE_OK){
             sqlite3_close(database);
             NSAssert(0, @"ceate table faild!");
             NSLog(@"表创建失败");
@@ -98,7 +98,7 @@ static WeatherModel *instance = nil;
 -(BOOL) sqliteCheck{
     sqlite3 *database;
     BOOL returnValue = YES;
-    if (sqlite3_open([[self dataFilePath] UTF8String], &database)!=SQLITE_OK) {
+    if (sqlite3_open([[self dataFilePath] UTF8String], &database) != SQLITE_OK) {
         sqlite3_close(database);
         NSAssert(0, @"open database failed!");
         NSLog(@"数据库查找失败！");
@@ -110,7 +110,7 @@ static WeatherModel *instance = nil;
         NSLog(@"查询语句：%@\n%s", query, [query UTF8String]);
         if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, nil) == SQLITE_OK) {
             returnValue = false;
-            while (sqlite3_step(stmt)==SQLITE_ROW) {
+            while (sqlite3_step(stmt) == SQLITE_ROW) {
                 self.cityName = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 1-1)];
                 self.cityNum = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 2-1)];
                 self.cityInfo = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 3-1)];
@@ -153,19 +153,19 @@ static WeatherModel *instance = nil;
 -(BOOL) sqliteCheck:(NSString *)theCityNum{
     sqlite3 *database;
     BOOL returnValue = YES;
-    if (sqlite3_open([[self dataFilePath] UTF8String], &database)!=SQLITE_OK) {
+    if (sqlite3_open([[self dataFilePath] UTF8String], &database) != SQLITE_OK) {
         sqlite3_close(database);
         NSAssert(0, @"open database failed!");
         NSLog(@"数据库查找失败！");
         return false;
     }
     else{
-        NSString *query= [NSString stringWithFormat:@"select * from weather where cityNum = '%@'", theCityNum];
+        NSString *query = [NSString stringWithFormat:@"select * from weather where cityNum = '%@'", theCityNum];
         sqlite3_stmt *stmt;
         NSLog(@"Select statement:%@",query);
         if (sqlite3_prepare_v2(database, [query UTF8String], -1, &stmt, nil) == SQLITE_OK) {
             NSLog(@"Entered the if condition");
-            while (sqlite3_step(stmt)==SQLITE_ROW) {
+            while (sqlite3_step(stmt) == SQLITE_ROW) {
                 self.cityName = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 1-1)];
                 self.cityNum = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 2-1)];
                 self.cityInfo = [[NSString alloc] initWithUTF8String:(char*)sqlite3_column_text(stmt, 3-1)];
@@ -286,7 +286,7 @@ static WeatherModel *instance = nil;
                                           format:&format
                                           errorDescription:&errorDesc];
     if (!temp) {
-        NSLog(@"Error reading plist: %@, format: %lu", errorDesc, format);
+        NSLog(@"Error reading plist: %@, format: %u", errorDesc, format);
     }
     return [[temp objectForKey:@"City"] objectForKey:thecityName];
 }

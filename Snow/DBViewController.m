@@ -57,7 +57,6 @@ static DBViewController *instance = nil;
                   @[@20, @40, @20, @60, @40, @140, @80],
                   @[@40, @20, @60, @100, @60, @20, @60],
                   @[@80, @60, @40, @160, @100, @40, @110]
-                  //                  @[@620, @650, @580, @620, @540, @400, @0]
                   ];
     
     self.labels = @[@"2001", @"2002", @"2003", @"2004", @"2005", @"2006", @"2007"];
@@ -66,7 +65,6 @@ static DBViewController *instance = nil;
     self.lineGraph.lineWidth = 3.0;
     
     [self.lineGraph draw];
-    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
