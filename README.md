@@ -45,3 +45,10 @@ now I have already fulfilment the basic functions.But there is something wrong w
 
 20140527 完成了软件部分文档，完善了代码风格一致性  
 ***TODO:*** Hub的使用，使得软件具有良好的提示效果。
+
+---
+
+20140531 城市天气新API: m.weather.com/atad/城市编号.html  
+城市实时天气API: www.weather.com/data/cityinfo/城市编号.html
+
+***TODO*** 修改城市天气更新方式。

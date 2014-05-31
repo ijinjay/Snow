@@ -259,7 +259,7 @@ static WeatherModel *instance = nil;
 - (void)startWithNum:(NSString *)thecityNum{
     //向开源的地址发送连接请求
     //这里使用的是异步的请求
-    NSString *urlString = [NSString stringWithFormat:@"http://m.weather.com.cn/data/%@.html", thecityNum];
+    NSString *urlString = [NSString stringWithFormat:@"http://m.weather.com.cn/atad/%@.html", thecityNum];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest    *urlRequest = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:30];
     NSURLConnection *urlConnection = [NSURLConnection connectionWithRequest:urlRequest delegate:self];
@@ -277,7 +277,6 @@ static WeatherModel *instance = nil;
 //    没有通过rootPath找到时使用NSBundle方法查找文件
     if (![[NSFileManager defaultManager] fileExistsAtPath:plistPath]) {
         plistPath = [[NSBundle mainBundle] pathForResource:@"City" ofType:@"plist"];
-        NSLog(@"Here");
     }
     NSData *plistXML = [[NSFileManager defaultManager] contentsAtPath:plistPath];
     NSDictionary *temp = (NSDictionary *)[NSPropertyListSerialization
